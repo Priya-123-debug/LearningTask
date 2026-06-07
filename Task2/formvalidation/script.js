@@ -12,10 +12,17 @@ const confirmError = document.querySelector("#confirmError");
 
 const successMessage = document.querySelector("#successMessage");
 form.addEventListener("submit",function(e){
+	nameError.textContent = "";
+emailError.textContent = "";
+passwordError.textContent = "";
+confirmError.textContent = "";
+successMessage.textContent = "";
+
 	e.preventDefault();
-	let namevalue=nameInput.value.trim ;
+	let namevalue=nameInput.value.trim() ;
 	if(namevalue.length<=3){
 	  nameError.textContent = "Name must be more than 3 characters";
+		value=false;
 	};
 	let valid=true;
 //  learn about regex
@@ -46,8 +53,13 @@ confirmError.textContent = "";
 successMessage.textContent = "";
 if (valid) {
     successMessage.textContent = "Registration Successful";
-}
 
+ nameInput.value = "";
+ emailInput.value = "";
+ passwordInput.value = "";
+ confirmPasswordInput.value = "";
+ 	successMessage.textContent="";
+}
 
 
 })
